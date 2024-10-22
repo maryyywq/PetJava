@@ -1,23 +1,20 @@
 public class Game {
-    private String gameName;
+    private String gameName = "";
+    private String description = "Ничего не делали!";
     private int funValue;
     private int energyCost;
 
-    // Default constructor
-    public Game() {
-        this.gameName = "";
-        this.funValue = 0;
-        this.energyCost = 0;
-    }
 
-    // Parameterized constructor
-    public Game(String gameName, int funValue, int energyCost) {
+    public Game() { }
+
+    public Game(String gameName, int funValue, int energyCost, String description) {
         this.gameName = gameName;
         this.funValue = funValue;
         this.energyCost = energyCost;
+        this.description = description;
     }
 
-    // Getters
+
     public String getGameName() {
         return gameName;
     }
@@ -30,7 +27,11 @@ public class Game {
         return energyCost;
     }
 
-    // Setters
+    public String getDescription() { return description; }
+
+
+
+
     public void setGameName(String gameName) {
         this.gameName = gameName;
     }
@@ -41,5 +42,9 @@ public class Game {
 
     public void setEnergyCost(int energyCost) {
         this.energyCost = energyCost;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

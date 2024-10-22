@@ -1,12 +1,12 @@
 public enum Mood {
-    HAPPY,
-    ANGRY,
-    SAD,
-    AFRAID;
+    HAPPY("Счастливый"),
+    ANGRY("Злой"),
+    SAD("Грустный"),
+    AFRAID("Испуганный");
 
     private final String name;
 
-    StatusType(String name) {
+    Mood(String name) {
         this.name = name;
     }
 

@@ -3,24 +3,23 @@ public class PetHouse {
     private String address;
     private int comfortLevel;
 
-    // Constant for maximum comfort level
-    public static final int MAX_COMFORT = 100;
 
-    // Default constructor
+    public static final int maxComfort = 100;
+
     public PetHouse() {
         this.houseName = "";
         this.address = "";
         this.comfortLevel = 0;
     }
 
-    // Parameterized constructor
+
     public PetHouse(String houseName, String address, int comfortLevel) {
         this.houseName = houseName;
         this.address = address;
-        this.comfortLevel = Math.min(comfortLevel, MAX_COMFORT); // Ensure comfort level doesn't exceed max
+        this.comfortLevel = Math.min(comfortLevel, maxComfort);
     }
 
-    // Getters
+
     public String getHouseName() {
         return houseName;
     }
@@ -33,7 +32,7 @@ public class PetHouse {
         return comfortLevel;
     }
 
-    // Setters
+
     public void setHouseName(String houseName) {
         this.houseName = houseName;
     }
@@ -43,6 +42,6 @@ public class PetHouse {
     }
 
     public void setComfortLevel(int comfortLevel) {
-        this.comfortLevel = Math.min(comfortLevel, MAX_COMFORT); // Ensure comfort level doesn't exceed max
+        this.comfortLevel = Math.min(comfortLevel, maxComfort);
     }
 }

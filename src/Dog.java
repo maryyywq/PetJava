@@ -1,4 +1,3 @@
-// Класс собаки
 public class Dog extends Pet {
 
     public Dog() {
