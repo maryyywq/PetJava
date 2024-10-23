@@ -2,8 +2,10 @@ public abstract class Pet {
     protected String name = "";
     protected int age;
     protected Status status = new Status();
+    protected Sex sex;
+    protected Color color;
 
-    public static final int walkEnergyCost = 5;
+    public static final int EnergyCost = 5;
     public static final int healthCost = 5;
     public static final int satietyCost = 10;
     public static final int sleepHungerCost = 40;
@@ -39,6 +41,9 @@ public abstract class Pet {
         return status.getMood();
     }
 
+    public Sex getSex() { return sex; }
+
+    public Color getColor() { return color; }
 
     public void setName(String name) {
         this.name = name;
@@ -60,32 +65,43 @@ public abstract class Pet {
         status.setMood(mood);
     }
 
+    public void setSex(Sex sex) {
+        this.sex = sex;
+    }
 
-    public abstract void makeSound();
+    public void setColor(Color color) {
+        this.color = color;
+    }
 
     public void use(PetItem item) {
-        String className = item.getClass().getSimpleName();
-        switch (className)
+        if (item.getPetUser().equals(getClass()) || item.getPetUser().equals(Pet.class))
         {
-            case "Food":
-                int newSatiety = status.getSatiety() + item.getValue();
-                status.setSatiety(newSatiety);
-                if (status.getSatiety() == Status.maxSatiety) {
-                    status.setMood(Mood.HAPPY);
-                }
-                System.out.println(name + " покушал(а) " + item.getName() + " и его(ее) голод уменьшился.");
-                makeSound(); // Питомец издает звук после еды
-                break;
-            case "Medicine":
-                status.setHealth(status.getHealth() + item.getValue());
-                if (status.getHealth() > Status.maxHealth) {
-                    status.setHealth(Status.maxHealth);
-                    status.setMood(Mood.HAPPY);
-                }
-                System.out.println(name + " принял(а) " + item.getName() + " и его(ее) здоровье улучшилось.");
-                break;
-            default:
-                break;
+            String className = item.getClass().getSimpleName();
+            switch (className)
+            {
+                case "Food":
+                    int newSatiety = status.getSatiety() + item.getValue();
+                    status.setSatiety(newSatiety);
+                    if (status.getSatiety() == Status.maxSatiety) {
+                        status.setMood(Mood.HAPPY);
+                    }
+                    System.out.println(name + " покушал(а) " + item.getName() + " и его(ее) голод уменьшился.");
+                    break;
+                case "Medicine":
+                    status.setHealth(status.getHealth() + item.getValue());
+                    if (status.getHealth() > Status.maxHealth) {
+                        status.setHealth(Status.maxHealth);
+                        status.setMood(Mood.HAPPY);
+                    }
+                    System.out.println(name + " принял(а) " + item.getName() + " и его(ее) здоровье улучшилось.");
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            System.out.println("Это не подходит вашему питомцу!");
         }
     }
 
@@ -99,11 +115,9 @@ public abstract class Pet {
             status.setMood(Mood.HAPPY);
             System.out.println(name + " гуляет и наслаждается хорошей погодой.");
         }
-        status.setEnergy(status.getEnergy() - walkEnergyCost);
+        status.setEnergy(status.getEnergy() - EnergyCost);
         status.setSatiety(status.getSatiety() - satietyCost);
         if (status.getEnergy() < 0) status.setEnergy(0);
-
-        makeSound();
     }
 
     public void sleep(PetHouse house) {
@@ -120,7 +134,6 @@ public abstract class Pet {
             System.out.println(name + " не очень хорошо отдохнул(а) :(");
             status.setMood(Mood.SAD);
         }
-        makeSound();
     }
 
     @Override

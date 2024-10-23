@@ -65,7 +65,6 @@ public class Owner {
             pet.setSatiety(pet.getSatiety() - Pet.satietyCost);
             System.out.println(game.getDescription());
             System.out.println(pet.getName() + " поиграл(а) в " + game.getGameName() + " и очень счастлив(а)!");
-            pet.makeSound();
         } else {
             System.out.println(pet.getName() + " слишком устал(а) для игры.");
         }

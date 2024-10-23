@@ -1,4 +1,4 @@
-public class Dog extends Pet {
+public class Dog extends Pet implements Soundable {
 
     public Dog() {
         super();
@@ -11,6 +11,13 @@ public class Dog extends Pet {
     @Override
     public void makeSound() {
         System.out.println(name + " говорит: Гав!");
+    }
+
+    @Override
+    public void walk(Weather weather)
+    {
+        super.walk(weather);
+        makeSound();
     }
 }
 

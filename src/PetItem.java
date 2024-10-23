@@ -2,7 +2,7 @@ public abstract class PetItem {
     protected String name = "";
     protected int value;
     protected int cost;
-
+    protected Class<? extends Pet> petUser = Pet.class;
 
     public PetItem() { }
 
@@ -25,6 +25,9 @@ public abstract class PetItem {
         return cost;
     }
 
+    public Class getPetUser() {
+        return petUser;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -36,5 +39,9 @@ public abstract class PetItem {
 
     public void setCost(int cost) {
         this.cost = cost;
+    }
+
+    public void setPetUser(Class<? extends Pet> petUser) {
+        this.petUser = petUser;
     }
 }

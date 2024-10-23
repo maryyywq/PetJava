@@ -4,8 +4,9 @@ public class Food extends PetItem {
         super();
     }
 
-    public Food(String foodName, int nutritionValue, int cost) {
+    public Food(String foodName, int nutritionValue, int cost, Class<? extends Pet> petUser) {
         super(foodName, nutritionValue, cost);
+        setPetUser(petUser);
     }
 }
 

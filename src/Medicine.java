@@ -4,8 +4,9 @@ public class Medicine extends PetItem {
         super();
     }
 
-    public Medicine(String name, int value, int cost) {
+    public Medicine(String name, int value, int cost, Class<? extends Pet> petUser) {
         super(name, value, cost);
+        setPetUser(petUser);
     }
 }
 
