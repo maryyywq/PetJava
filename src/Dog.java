@@ -1,11 +1,8 @@
 public class Dog extends Pet implements Soundable {
+    public Dog() { super(); }
 
-    public Dog() {
-        super();
-    }
-
-    public Dog(String name, int age) {
-        super(name, age);
+    public Dog(String name, int age, Sex sex, Color color) {
+        super(name, age, sex, color);
     }
 
     @Override

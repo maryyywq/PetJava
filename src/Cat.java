@@ -2,12 +2,10 @@ import java.util.Random;
 
 public class Cat extends Pet implements Soundable {
 
-    public Cat() {
-        super();
-    }
+    public Cat() { super(); }
 
-    public Cat(String name, int age) {
-        super(name, age);
+    public Cat(String name, int age, Sex sex, Color color) {
+        super(name, age, sex, color);
     }
 
     @Override
@@ -23,7 +21,7 @@ public class Cat extends Pet implements Soundable {
     }
 
     public void groom() {
-        System.out.println("Ваш кот (кошка)" + name + "умылся(лась).");
+        System.out.println("Ваш кот(кошка) " + name + " умылся(лась).");
         status.setMood(Mood.HAPPY);
         status.setEnergy(status.getEnergy() - EnergyCost);
         Random r = new Random();

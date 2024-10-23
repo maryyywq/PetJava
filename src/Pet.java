@@ -2,7 +2,7 @@ public abstract class Pet {
     protected String name = "";
     protected int age;
     protected Status status = new Status();
-    protected Sex sex;
+    protected Sex sex ;
     protected Color color;
 
     public static final int EnergyCost = 5;
@@ -12,9 +12,11 @@ public abstract class Pet {
 
     public Pet() { }
 
-    public Pet(String name, int age) {
+    public Pet(String name, int age, Sex sex, Color color) {
         this.name = name;
         this.age = age;
+        this.sex = sex;
+        this.color = color;
     }
 
     public String getName() {
@@ -101,7 +103,7 @@ public abstract class Pet {
         }
         else
         {
-            System.out.println("Это не подходит вашему питомцу!");
+            System.out.println(item.getName() + " не подходит для " + getName() + "!");
         }
     }
 
@@ -140,6 +142,8 @@ public abstract class Pet {
     public String toString() {
         return "Имя питомца: " + name + "\n" +
                 "Возраст питомца: " + age + "\n" +
+                "Пол: " + sex + "\n" +
+                "Окраска: " + (sex.equals(Sex.MALE) ? color.getMaleName() : color.getFemaleName()) + "\n" +
                 "Сытость: " + status.getSatiety() + "\n" +
                 "Энергия: " + status.getEnergy() + "\n" +
                 "Здоровье: " + status.getHealth() + "\n" +
