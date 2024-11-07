@@ -7,9 +7,9 @@ public abstract class PetItem {
     public PetItem() { }
 
     public PetItem(String name, int value, int cost) {
-        this.name = name;
-        this.value = value;
-        this.cost = cost;
+        setName(name);
+        setValue(value);
+        setCost(cost);
     }
 
 

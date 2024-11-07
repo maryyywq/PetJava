@@ -15,9 +15,9 @@ public class PetHouse {
 
 
     public PetHouse(String houseName, String address, int comfortLevel) {
-        this.houseName = houseName;
-        this.address = address;
-        this.comfortLevel = Math.min(comfortLevel, maxComfort);
+        setHouseName(houseName);
+        setAddress(address);
+        setComfortLevel(comfortLevel);
         HouseCount++;
     }
 

@@ -11,10 +11,10 @@ public class Status {
 
 
     public Status() {
-        this.satiety = maxSatiety;
-        this.energy = maxEnergy / 2;
-        this.health = maxHealth;
-        this.mood = Mood.HAPPY;
+        setSatiety(maxSatiety);
+        setEnergy(maxEnergy / 2);
+        setHealth(maxHealth);
+        setMood(Mood.HAPPY);
     }
 
 

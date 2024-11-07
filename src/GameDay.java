@@ -7,8 +7,8 @@ public class GameDay {
 
 
     public GameDay(int dayNumber, Weather weather) {
-        this.dayNumber = dayNumber;
-        this.weather = weather;
+        setDayNumber(dayNumber);
+        setWeather(weather);
     }
 
 

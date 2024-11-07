@@ -10,9 +10,9 @@ public class Owner {
 
 
     public Owner(String ownerName, int ownerAge, int money) {
-        this.ownerName = ownerName;
-        this.ownerAge = ownerAge;
-        this.money = money;
+        setOwnerName(ownerName);
+        setOwnerAge(ownerAge);
+        setMoney(money);
     }
 
 

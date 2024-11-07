@@ -8,10 +8,10 @@ public class Game {
     public Game() { }
 
     public Game(String gameName, int funValue, int energyCost, String description) {
-        this.gameName = gameName;
-        this.funValue = funValue;
-        this.energyCost = energyCost;
-        this.description = description;
+        setGameName(gameName);
+        setFunValue(funValue);
+        setEnergyCost(energyCost);
+       setDescription(description);
     }
 
 

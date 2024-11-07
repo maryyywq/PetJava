@@ -13,10 +13,10 @@ public abstract class Pet {
     public Pet() { }
 
     public Pet(String name, int age, Sex sex, Color color) {
-        this.name = name;
-        this.age = age;
-        this.sex = sex;
-        this.color = color;
+        setName(name);
+        setAge(age);
+        setSex(sex);
+        setColor(color);
     }
 
     public String getName() {
@@ -66,6 +66,13 @@ public abstract class Pet {
             throw new IllegalArgumentException("Энергия должна быть от 0 до " + Status.maxEnergy);
         }
         status.setEnergy(energy);
+    }
+
+    public void setAge(int age) {
+        if (age < 0) {
+            throw new IllegalArgumentException("Возраст не может быть отрицательным.");
+        }
+        this.age = age;
     }
 
     public void setHealth(int health) {
