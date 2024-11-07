@@ -30,21 +30,31 @@ public class Game {
     public String getDescription() { return description; }
 
 
-
-
     public void setGameName(String gameName) {
+        if (gameName == null || gameName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Имя игры не может быть пустым!");
+        }
         this.gameName = gameName;
     }
 
     public void setFunValue(int funValue) {
+        if (funValue <= 0) {
+            throw new IllegalArgumentException("Значение веселья должно быть положительным!");
+        }
         this.funValue = funValue;
     }
 
     public void setEnergyCost(int energyCost) {
+        if (energyCost < 0) {
+            throw new IllegalArgumentException("Энергия не может быть отрицательной!");
+        }
         this.energyCost = energyCost;
     }
 
     public void setDescription(String description) {
+        if (description == null || description.trim().isEmpty()) {
+            throw new IllegalArgumentException("Описание игры не может быть пустым!");
+        }
         this.description = description;
     }
 }

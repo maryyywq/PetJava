@@ -22,6 +22,9 @@ public class GameDay {
 
 
     public void setDayNumber(int dayNumber) {
+        if (dayNumber < 0) {
+            throw new IllegalArgumentException("Номер дня не может быть отрицательным!");
+        }
         this.dayNumber = dayNumber;
     }
 

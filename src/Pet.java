@@ -48,35 +48,56 @@ public abstract class Pet {
     public Color getColor() { return color; }
 
     public void setName(String name) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Имя не может быть пустым.");
+        }
         this.name = name;
     }
 
     public void setSatiety(int satiety) {
+        if (satiety < 0 || satiety > Status.maxSatiety) {
+            throw new IllegalArgumentException("Сытость должна быть от 0 до " + Status.maxSatiety);
+        }
         status.setSatiety(satiety);
     }
 
     public void setEnergy(int energy) {
+        if (energy < 0 || energy > Status.maxEnergy) {
+            throw new IllegalArgumentException("Энергия должна быть от 0 до " + Status.maxEnergy);
+        }
         status.setEnergy(energy);
     }
 
     public void setHealth(int health) {
+        if (health < 0 || health > Status.maxHealth) {
+            throw new IllegalArgumentException("Здоровье должно быть от 0 до " + Status.maxHealth);
+        }
         status.setHealth(health);
     }
 
     public void setMood(Mood mood) {
+        if (mood == null) {
+            throw new IllegalArgumentException("Настроение не может быть пустым.");
+        }
         status.setMood(mood);
     }
 
     public void setSex(Sex sex) {
+        if (sex == null) {
+            throw new IllegalArgumentException("Пол не может быть пустым.");
+        }
         this.sex = sex;
     }
 
     public void setColor(Color color) {
+        if (color == null) {
+            throw new IllegalArgumentException("Окраска не может быть пустой.");
+        }
         this.color = color;
     }
 
     public void use(PetItem item) {
-        if (item.getPetUser().equals(getClass()) || item.getPetUser().equals(Pet.class))
+        if (item.getPetUser().equals(this.getClass()) || item.getPetUser().equals(Pet.class))
         {
             String className = item.getClass().getSimpleName();
             switch (className)

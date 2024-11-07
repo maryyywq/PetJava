@@ -30,14 +30,23 @@ public class Owner {
 
 
     public void setOwnerName(String ownerName) {
+        if (ownerName == null || ownerName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Имя владельца не может быть пустым.");
+        }
         this.ownerName = ownerName;
     }
 
     public void setOwnerAge(int ownerAge) {
+        if (ownerAge <= 0) {
+            throw new IllegalArgumentException("Возраст владельца должен быть положительным числом.");
+        }
         this.ownerAge = ownerAge;
     }
 
     public void setMoney(int money) {
+        if (money < 0) {
+            throw new IllegalArgumentException("Количество денег не может быть отрицательным.");
+        }
         this.money = money;
     }
 

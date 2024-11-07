@@ -2,6 +2,7 @@ public class PetHouse {
     private String houseName;
     private String address;
     private int comfortLevel;
+    private static int HouseCount = 0;
 
 
     public static final int maxComfort = 100;
@@ -17,8 +18,12 @@ public class PetHouse {
         this.houseName = houseName;
         this.address = address;
         this.comfortLevel = Math.min(comfortLevel, maxComfort);
+        HouseCount++;
     }
 
+    public static int getHouseCount() {
+        return HouseCount;
+    }
 
     public String getHouseName() {
         return houseName;
@@ -34,14 +39,23 @@ public class PetHouse {
 
 
     public void setHouseName(String houseName) {
+        if (houseName == null || houseName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Название дома не может быть пустым.");
+        }
         this.houseName = houseName;
     }
 
     public void setAddress(String address) {
+        if (address == null || address.trim().isEmpty()) {
+            throw new IllegalArgumentException("Адрес дома не может быть пустым.");
+        }
         this.address = address;
     }
 
     public void setComfortLevel(int comfortLevel) {
+        if (comfortLevel < 0) {
+            throw new IllegalArgumentException("Уровень комфорта не может быть отрицательным.");
+        }
         this.comfortLevel = Math.min(comfortLevel, maxComfort);
     }
 }
