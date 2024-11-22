@@ -1,4 +1,4 @@
-public abstract class Pet {
+public abstract class Pet implements Cloneable {
     protected String name = "";
     protected int age;
     protected Status status = new Status();
@@ -176,6 +176,14 @@ public abstract class Pet {
                 "Энергия: " + status.getEnergy() + "\n" +
                 "Здоровье: " + status.getHealth() + "\n" +
                 "Настроение: " + status.getMood();
+    }
+
+    @Override
+    public Pet clone() throws CloneNotSupportedException
+    {
+        Pet newPet = (Pet)super.clone();
+        newPet.status = status.clone();
+        return newPet;
     }
 }
 

@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public enum Sex {
     FEMALE("Девочка"),
     MALE("Мальчик");

@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Cat extends Pet implements Soundable {
+public class Cat extends Pet implements Soundable{
 
     public Cat() { super(); }
 
@@ -29,7 +29,6 @@ public class Cat extends Pet implements Soundable {
         if (randNum <= 70) {
             makeSound();
         }
-
     }
 }
 

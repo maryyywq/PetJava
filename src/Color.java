@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public enum Color {
     BLACK("Черный", "Черная"),
     WHITE("Белый","Белая"),
@@ -18,5 +20,11 @@ public enum Color {
 
     public String getMaleName() {
         return maleName;
+    }
+
+    public static Color getRandomColor() {
+        Random rand = new Random();
+        var colors = Color.values();
+        return colors[rand.nextInt(colors.length)];
     }
 }

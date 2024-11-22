@@ -31,4 +31,7 @@ public class GameDay {
     public void setWeather(Weather weather) {
         this.weather = weather;
     }
+
+    @Override
+    public String toString() { return dayNumber + ", погода: " + weather; }
 }

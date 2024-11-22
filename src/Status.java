@@ -1,4 +1,4 @@
-public class Status {
+public class Status implements Cloneable {
     private int satiety;
     private int energy;
     private int health;
@@ -16,7 +16,6 @@ public class Status {
         setHealth(maxHealth);
         setMood(Mood.HAPPY);
     }
-
 
     public int getSatiety() {
         return satiety;
@@ -58,5 +57,11 @@ public class Status {
 
     public void setMood(Mood mood) {
         this.mood = mood;
+    }
+
+    @Override
+    public Status clone() throws CloneNotSupportedException
+    {
+        return (Status)super.clone();
     }
 }
