@@ -1,13 +1,8 @@
-public class Dog extends Pet implements Soundable {
-    public Dog() { super(); }
+public class Dog extends Pet {
+    public Dog() { super(); setSoundBehavior(new BarkSound()); setMoveBehavior(new RunBehavior());}
 
     public Dog(String name, int age, Sex sex, Color color) {
-        super(name, age, sex, color);
-    }
-
-    @Override
-    public void makeSound() {
-        System.out.println(name + " говорит: Гав!");
+        super(name, age, sex, color, new BarkSound(), new FlyBehavior());
     }
 
     @Override

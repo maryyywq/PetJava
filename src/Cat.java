@@ -1,17 +1,13 @@
 import java.util.Random;
 
-public class Cat extends Pet implements Soundable{
+public class Cat extends Pet {
 
-    public Cat() { super(); }
+    public Cat() { super(); setSoundBehavior(new MeowSound()); setMoveBehavior(new RunBehavior());}
 
     public Cat(String name, int age, Sex sex, Color color) {
-        super(name, age, sex, color);
+        super(name, age, sex, color, new MeowSound(), new RunBehavior());
     }
 
-    @Override
-    public void makeSound() {
-        System.out.println(name + " говорит: Мяу!");
-    }
 
     @Override
     public void use(PetItem item)

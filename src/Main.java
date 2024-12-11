@@ -3,13 +3,18 @@
 public class Main {
 
     public static void main(String[] args) throws CloneNotSupportedException {
-        Pet cat = PetFabric.createPet(PetType.CAT, "Черная", Sex.FEMALE);
+        Pet myCat = new Cat();
+        Pet myDog = new Dog();
+        Parrot myParrot = new Parrot();
 
-        Cat cat1 = (Cat)cat; //поверхностное клонирование
-        Cat cat2 = (Cat)cat.clone(); //глубокое клонирование
+        myCat.makeSound();
+        myDog.makeSound();
+        myParrot.makeSound();
+        myParrot.learnNewSound(new BarkSound());
+        myParrot.makeSound();
 
-        cat.walk(Weather.STORM);
-        System.out.println(cat1);
-        System.out.println(cat2);
+        myCat.move();
+        myDog.move();
+        myParrot.move();
     }
 }
