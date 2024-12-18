@@ -137,5 +137,22 @@ public class Owner {
             System.out.println(pet.getName() + " слишком устал(а) для игры.");
         }
     }
+
+    @Override
+    public String toString() {
+        String result = "Имя владельца: " + getOwnerName() + "\n";
+        result += "Возраст: " + getOwnerAge() + "\n";
+        result += "Количество денег: " + getMoney() + "\n";
+        result += "Питомцы: \n";
+        for (Map.Entry<String, Pet> entry : getPets().entrySet()) {
+            result += "\t" + entry.getKey() + "\n";
+        }
+        result += "Предметы в инвентаре: \n";
+        for (PetItem item : getInventory()) {
+            result += "\t" + item.getName() + "\n";
+        }
+        return result;
+    }
+
 }
 
