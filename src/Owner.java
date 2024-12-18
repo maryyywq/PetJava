@@ -1,10 +1,12 @@
 import java.util.Random;
+import java.util.*;
 
 public class Owner {
     private String ownerName = "Некто";
     private int ownerAge;
     private int money;
-
+    private Map<String, Pet> pets = new HashMap<>();
+    private List<PetItem> itemInventory = new ArrayList<>();
 
     public Owner() { }
 
@@ -28,6 +30,13 @@ public class Owner {
         return money;
     }
 
+    public Map<String, Pet> getPets() {
+        return pets;
+    }
+
+    public List<PetItem> getInventory() {
+        return itemInventory;
+    }
 
     public void setOwnerName(String ownerName) {
         if (ownerName == null || ownerName.trim().isEmpty()) {
@@ -48,6 +57,57 @@ public class Owner {
             throw new IllegalArgumentException("Количество денег не может быть отрицательным.");
         }
         this.money = money;
+    }
+
+    public void addPet(Pet pet) {
+        pets.put(pet.getName(), pet);
+    }
+
+    public void removePet(String name) {
+        pets.remove(name);
+    }
+
+    public Pet getPet(String name) {
+        Pet pet = pets.get(name);
+        if (pet == null) {
+            System.out.println("Такого питомца у этого хозяина нет!");
+        }
+        return pet;
+    }
+
+    public void addItem(PetItem item) {
+        itemInventory.add(item);
+    }
+
+    public void removeItem(String name) {
+        PetItem itemToRemove = itemInventory.stream()
+                .filter(item -> item.getName().equals(name))
+                .findFirst()
+                .orElse(null);
+
+        if (itemToRemove != null) {
+            itemInventory.remove(itemToRemove);
+        } else {
+            System.out.println("Такого предмета не существует!");
+        }
+    }
+
+    public PetItem getItem(String name) {
+        return itemInventory.stream()
+                .filter(item -> item.getName().equals(name))
+                .findFirst()
+                .orElseGet(() -> {
+                    System.out.println("Такого предмета не существует!");
+                    return null;
+                });
+    }
+
+    public void sortItemsByValue() {
+        itemInventory.sort((left, right) -> Integer.compare(right.getValue(), left.getValue()));
+    }
+
+    public void sortItemsByCost() {
+        itemInventory.sort((left, right) -> Integer.compare(right.getCost(), left.getCost()));
     }
 
     public void pet(Pet pet)
