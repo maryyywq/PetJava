@@ -3,18 +3,36 @@
 public class Main {
 
     public static void main(String[] args) throws CloneNotSupportedException {
-        Pet myCat = new Cat();
-        Pet myDog = new Dog();
-        Parrot myParrot = new Parrot();
+        Pet myCat = new Cat("Чернь", 3, Sex.FEMALE, Color.BLACK);
+        Pet myParrot = new Parrot("Попка", 4, Sex.MALE, Color.getRandomColor());
 
-        myCat.makeSound();
-        myDog.makeSound();
-        myParrot.makeSound();
-        myParrot.learnNewSound(new BarkSound());
-        myParrot.makeSound();
+        PetItem item1 = new Food("Сникерс", 20, 60, Parrot.class);
+        PetItem item2 = new Medicine("Нурафен", 40, 50, Pet.class);
 
-        myCat.move();
-        myDog.move();
-        myParrot.move();
+        Owner marina = new Owner("Мария", 19, 1000);
+
+        marina.addPet(myCat);
+        marina.addPet(myParrot);
+        marina.addItem(item1);
+        marina.addItem(item2);
+
+        System.out.println(marina);
+
+        Pet pet1 = marina.getPet("Чернь");
+        System.out.println(pet1 + "\n");
+
+        Pet pet2 = marina.getPet("Санек");
+
+        marina.sortItemsByValue();
+        System.out.println("\nПосле сортировки по значимости:");
+        System.out.println(marina);
+
+        marina.sortItemsByCost();
+        System.out.println("После сортировки по стоимости:");
+        System.out.println(marina);
+
+        Parrot parrot = new Parrot("Попка", 4, Sex.MALE, Color.getRandomColor());
+        parrot.learnNewSound("Привет!");
+        parrot.makeRandomSound();
     }
 }
