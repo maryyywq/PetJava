@@ -10,7 +10,6 @@ public class Owner {
 
     public Owner() { }
 
-
     public Owner(String ownerName, int ownerAge, int money) {
         setOwnerName(ownerName);
         setOwnerAge(ownerAge);
